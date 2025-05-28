@@ -335,7 +335,7 @@
         <path d="M2 12L12 17L22 12"></path>
       </svg>
     </div>
-    <div class="header-title">Assistant</div>
+    <div class="header-title">{model}</div>
   </div>
 
   <div class="messages" bind:this={messagesContainer}>
