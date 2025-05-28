@@ -2,6 +2,11 @@
 
 A beautifully simple, embeddable chat widget for Open WebUI instances. Add AI-powered chat to any website with just a few lines of code.
 
+**See it in action:**
+<div align="center">
+  <video width="600" src="https://github.com/user-attachments/assets/a82e80ac-4aa5-41bf-a780-605ce6fd2005"></video>
+</div>
+
 ## ✨ Features
 
 - **Dead Simple Integration** - Just 3 lines of HTML to add chat to your site
