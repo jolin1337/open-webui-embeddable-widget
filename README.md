@@ -1,100 +1,177 @@
 # Open WebUI Chat Widget
 
-This is a lightweight, embeddable Svelte chat widget that can be integrated into any HTML page or existing web application.
+A beautifully simple, embeddable chat widget for Open WebUI instances. Add AI-powered chat to any website with just a few lines of code.
 
-## Prerequisites
+## ✨ Features
 
-- Node.js and npm (or a compatible package manager like yarn or pnpm)
+- **Dead Simple Integration** - Just 3 lines of HTML to add chat to your site
+- **Clean, Modern UI** - Professional chat interface that looks great out of the box
+- **Zero Dependencies** - Lightweight, self-contained widget (~15KB)
+- **Fully Customizable** - Configure your API endpoint, model, and styling
+- **Responsive Design** - Works perfectly on desktop and mobile
 
-## Building the Widget
+## 🚀 Quick Start
 
-1.  **Install Dependencies:**
-    Open your terminal in the project root directory and run:
-    ```bash
-    npm install
-    ```
+### 1. Get Your API Key
 
-2.  **Build the Widget:**
-    To compile the Svelte component into a distributable JavaScript file, run:
-    ```bash
-    npm run build
-    ```
-    This command will generate the bundled widget in the `dist` directory, specifically as `dist/ChatWidget.js`.
+First, you'll need an API key from your Open WebUI instance:
 
-## How to Embed the Widget
+1. Log into your Open WebUI
+2. Go to **User Settings** → **Account** → **API Keys**
+3. Create a new API key and copy it
 
-Once built, you can embed the chat widget into any HTML page.
+*[Screenshot of API Keys section will be added here]*
 
-1.  **Include the Script:**
-    Add the following script tag to your HTML file. Make sure to adjust the `src` path if you place the `dist` folder elsewhere relative to your HTML file.
+### 2. Add the Widget to Your Site
 
-    ```html
-    <div id="owui-chat"></div>
+Add these three lines to your HTML:
 
+```html
+<link rel="stylesheet" href="https://your-cdn.com/owui-widget.css">
+<div id="chat-widget"></div>
+<script type="module">
+  import ChatWidget, { mount } from 'https://your-cdn.com/ChatWidget.js';
+  mount(ChatWidget, {
+    target: document.getElementById('chat-widget')
+  });
+</script>
+```
+
+### 3. Configure with URL Parameters
+
+Add your API key to the page URL:
+
+```
+https://yoursite.com/page.html?api_key=YOUR_API_KEY_HERE
+```
+
+That's it! Your chat widget is now live. 🎉
+
+## 📋 Configuration Options
+
+Configure the widget by adding parameters to your page URL:
+
+| Parameter | Description | Example |
+|-----------|-------------|---------|
+| `api_key` | Your Open WebUI API key (required) | `?api_key=sk-abc123...` |
+| `model` | AI model to use (optional) | `?api_key=...&model=gpt-4` |
+| `endpoint` | Custom API endpoint (optional) | `?api_key=...&endpoint=https://api.example.com/chat` |
+
+### Full Example
+
+```
+https://yoursite.com/chat.html?api_key=sk-abc123&model=gpt-4&endpoint=https://my-openwebui.com/api/chat/completions
+```
+
+## 🛠️ Self-Hosting
+
+Want to host the widget files yourself? It's easy:
+
+1. **Download the widget files:**
+   - `ChatWidget.js`
+   - `owui-widget.css`
+
+2. **Host them on your server**
+
+3. **Update the paths in your HTML:**
+   ```html
+   <link rel="stylesheet" href="/path/to/owui-widget.css">
+   <script type="module">
+     import ChatWidget, { mount } from '/path/to/ChatWidget.js';
+     // ... rest of the code
+   </script>
+   ```
+
+## 💡 Usage Examples
+
+### Basic Chat Page
+
+Create a simple `chat.html` file:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat with AI</title>
+    <link rel="stylesheet" href="owui-widget.css">
+    <style>
+        #chat-widget {
+            width: 400px;
+            height: 600px;
+            margin: 50px auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-widget"></div>
     <script type="module">
-      // Adjust path to where your ChatWidget.js is served from
-      import ChatWidget from './dist/ChatWidget.js';
-
-      new ChatWidget({
-        target: document.getElementById('owui-chat')
-      });
+        import ChatWidget, { mount } from './ChatWidget.js';
+        mount(ChatWidget, {
+            target: document.getElementById('chat-widget')
+        });
     </script>
-    ```
+</body>
+</html>
+```
 
-2.  **Configure via URL Query Parameters:**
-    The widget can be configured by passing query parameters in the URL of the page where it's embedded.
+### Embedded in Existing Site
 
-    -   `api_key` (required): Your API token for authentication.
-    -   `model` (optional): The model to use (e.g., `llama3.1`). Defaults to `gpt-4o-mini`.
-    -   `endpoint` (optional): The chat completions API endpoint. Defaults to `/api/chat/completions` (relative to the host serving the widget). If the widget isn't served from the same host as Open WebUI, provide the full URL (e.g., `https://owui.yourdomain.com/api/chat/completions`).
+Add a chat widget to your existing website:
 
-    **Example:**
-    If your page is `https://example.com/chat-page.html`, you would append the parameters like this:
-    `https://example.com/chat-page.html?api_key=YOUR_TOKEN&model=llama3.1`
+```html
+<!-- Add this where you want the chat to appear -->
+<div id="customer-support-chat" style="width: 350px; height: 500px;"></div>
 
-    If using a custom endpoint:
-    `https://example.com/chat-page.html?api_key=YOUR_TOKEN&model=llama3.1&endpoint=https://owui.yourdomain.com/api/chat/completions`
+<!-- Add this before closing </body> -->
+<script type="module">
+    import ChatWidget, { mount } from 'https://cdn.example.com/ChatWidget.js';
+    mount(ChatWidget, {
+        target: document.getElementById('customer-support-chat')
+    });
+</script>
+```
 
-## Running the Demo
+## 🎨 Styling
 
-An example HTML page is provided in the `examples` directory.
+The widget automatically adapts to its container size. Simply set the width and height on your container div:
 
-1.  **Build the Widget:**
-    If you haven't already, build the widget:
-    ```bash
-    npm run build
-    ```
+```html
+<div id="chat-widget" style="width: 100%; height: 400px;"></div>
+```
 
-2.  **Serve the Demo Page:**
-    To avoid browser security restrictions (CORS errors) when loading JavaScript modules from the local file system (`file:///`), you need to serve the demo page using a local HTTP server. Run the following command from the project root:
-    ```bash
-    npm run serve:demo
-    ```
-    This will start a local server, typically at `http://localhost:8080` (the exact port might vary if 8080 is in use). The terminal will display the accessible URLs.
+## 🔒 Security Notes
 
-3.  **Open the Demo Page in Your Browser:**
-    Navigate to `http://localhost:8080/examples/index.html` (or the URL provided by `http-server`).
+- **Never hardcode your API key** in your HTML
+- Use URL parameters for development/testing only
+- For production, consider implementing a backend proxy to keep your API key secure
 
-4.  **Provide Configuration:**
-    As described above, you'll need to append query parameters (like `api_key`) to the URL in your browser's address bar for the chat to function. For example:
-    `http://localhost:8080/examples/index.html?api_key=YOUR_TOKEN`
+## 📦 What's Included
 
-## Development
+- `ChatWidget.js` - The main widget component
+- `owui-widget.css` - Styling for the widget
+- Clean, modern UI with smooth animations
+- Auto-scrolling message container
+- Loading indicators
+- Responsive textarea that grows with content
 
--   **Type Checking:**
-    ```bash
-    npm run check
-    ```
-    Or for watch mode:
-    ```bash
-    npm run check:watch
-    ```
+## 🤝 Support
 
--   **Formatting:**
-    ```bash
-    npm run format
-    ```
+Having issues? The widget is designed to be as simple as possible:
 
--   **Linting (Format Check):**
-    ```bash
-    npm run lint
+1. Make sure your API key is valid
+2. Check that your Open WebUI instance is accessible
+3. Verify the endpoint URL is correct (defaults to `/api/chat/completions`)
+4. Open your browser's console to see any error messages
+
+## 🎯 Perfect For
+
+- Adding AI chat to documentation sites
+- Customer support widgets
+- Interactive demos
+- Educational tools
+- Any website that could benefit from AI assistance
+
+---
+
+**That's all there is to it!** This widget is designed to make adding AI chat to your website as simple as possible. No complex setup, no heavy dependencies, just clean, functional chat in minutes.
