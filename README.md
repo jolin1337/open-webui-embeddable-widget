@@ -25,7 +25,7 @@ First, you'll need an API key from your Open WebUI instance:
 2. Go to **User Settings** → **Account** → **API Keys**
 3. Create a new API key and copy it
 
-*[Screenshot of API Keys section will be added here]*
+<img width="883" alt="image" src="https://github.com/user-attachments/assets/6335921a-802c-4888-9ea6-cb0b57a0332b" />
 
 ### 2. Add the Widget to Your Site
 
