@@ -4,7 +4,7 @@ A beautifully simple, embeddable chat widget for Open WebUI instances. Add AI-po
 
 **See it in action:**
 <div align="center">
-  <video width="600" src="https://github.com/user-attachments/assets/a82e80ac-4aa5-41bf-a780-605ce6fd2005"></video>
+  <video width="556" src="https://github.com/user-attachments/assets/a82e80ac-4aa5-41bf-a780-605ce6fd2005"></video>
 </div>
 
 ## ✨ Features
