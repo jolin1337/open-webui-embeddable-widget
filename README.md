@@ -1,6 +1,8 @@
 # Open WebUI Chat Widget
 
-A beautifully simple, embeddable chat widget for Open WebUI instances. Add AI-powered chat to any website with just a few lines of code. This tool is intended for trusted internal user traffic and relies on shared API keys or user sessions to call the Open WebUI backend, it is not meant for public web traffic without additional
+A beautifully simple, embeddable chat widget for Open WebUI instances. Add AI-powered chat to any website with just a few lines of code. 
+
+This tool is meant to be extremely simple and is intended for trusted internal user traffic only as it relies on shared API keys or user sessions to call the Open WebUI backend. It is not meant for public web traffic without additional
 authentication in place.
 
 **See it in action:**
