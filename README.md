@@ -180,7 +180,7 @@ Having issues? The widget is designed to be as simple as possible:
 - Customer support widgets
 - Interactive demos
 - Educational tools
-- Any website that could benefit from AI assistance
+- Anywhere that could benefit from AI assistance
 
 ---
 
