@@ -10,7 +10,8 @@
 		"format": "prettier --write .",
 		"lint": "prettier --check .",
 		"package": "npm run build",
-		"serve:demo": "http-server ."
+		"serve:demo": "http-server .",
+		"dev": "vite"
 	},
 	"devDependencies": {
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
